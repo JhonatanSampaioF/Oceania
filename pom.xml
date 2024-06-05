@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>fiap.tds</groupId>
     <artifactId>Oceania</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -31,17 +31,38 @@
             <artifactId>jersey-hk2</artifactId>
         </dependency>
 
-        <!-- uncomment this to get JSON support:
-         <dependency>
+        <!-- uncomment this to get JSON support: -->
+        <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-binding</artifactId>
         </dependency>
-        -->
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc10</artifactId>
+            <version>19.22.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.23.1</version>
         </dependency>
     </dependencies>
 
@@ -53,8 +74,8 @@
                 <version>3.8.1</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>18</source>
+                    <target>18</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -69,7 +90,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>org.example.Main</mainClass>
+                    <mainClass>fiap.tds.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -82,8 +103,8 @@
     </build>
 
     <properties>
-        <jersey.version>4.0.0-M1</jersey.version>
-        <junit-jupiter.version>5.10.1</junit-jupiter.version>
+        <jersey.version>3.1.5</jersey.version>
+        <junit-jupiter.version>5.10.0</junit-jupiter.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <surefire.mvn.plugin.version>3.2.1</surefire.mvn.plugin.version>
     </properties>

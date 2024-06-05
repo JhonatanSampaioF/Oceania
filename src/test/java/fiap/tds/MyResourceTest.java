@@ -1,4 +1,4 @@
-package org.example;
+package fiap.tds;
 
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
