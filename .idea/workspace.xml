@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47b147ea-c847-4eab-8ff2-750a8af7694f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/infraestructure/CorsFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/ConexaoOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Endereco.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Loja.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Lojista.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Pedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Produto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/_BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ClienteRepositoryOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/EnderecoRepositoryOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/LojaRepositoryOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/LojistaRepositoryOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ProdutoRepositoryOracle.java" afterDir="false" />
+    <list default="true" id="47b147ea-c847-4eab-8ff2-750a8af7694f" name="Changes" comment="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/DetalhesPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/DetalhesPedidoRepositoryOracle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/ClienteResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/DetalhesPedidoResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/EnderecoResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/LojaResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/LojistaResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/PedidoResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/ProdutoResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/MyResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/MyResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/fiap/tds/MyResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ProdutoRepositoryOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ProdutoRepositoryOracle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,54 +85,34 @@
       <workItem from="1717526907128" duration="59000" />
       <workItem from="1717546098578" duration="118000" />
       <workItem from="1717546239611" duration="3053000" />
+      <workItem from="1717549310310" duration="809000" />
+      <workItem from="1717601914090" duration="5863000" />
     </task>
+    <task id="LOCAL-00001" summary="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main">
+      <option name="closed" value="true" />
+      <created>1717549515997</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717549515997</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/EnderecoRepositoryOracle.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/LojaRepositoryOracle.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/LojaRepositoryOracle.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/EnderecoRepositoryOracle.java</url>
           <line>32</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

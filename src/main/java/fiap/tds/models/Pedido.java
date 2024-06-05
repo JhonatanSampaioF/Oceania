@@ -9,25 +9,18 @@ public class Pedido extends _BaseEntity {
     private Double valor_total;
     private String metodo_pgto;
     private int fk_cliente;
-    private int quantidade;
-    private Double subtotal;
-    private int fk_pedido;
-    private int fk_prod;
+
 
     public Pedido() {
     }
 
-    public Pedido(int id, Date dt_pedido, String status_pedido, Double valor_total, String metodo_pgto, int fk_cliente, int quantidade, Double subtotal, int fk_pedido, int fk_prod) {
+    public Pedido(int id, Date dt_pedido, String status_pedido, Double valor_total, String metodo_pgto, int fk_cliente) {
         super(id);
         this.dt_pedido = dt_pedido;
         this.status_pedido = status_pedido;
         this.valor_total = valor_total;
         this.metodo_pgto = metodo_pgto;
         this.fk_cliente = fk_cliente;
-        this.quantidade = quantidade;
-        this.subtotal = subtotal;
-        this.fk_pedido = fk_pedido;
-        this.fk_prod = fk_prod;
     }
 
     public Date getDt_pedido() {
@@ -70,38 +63,6 @@ public class Pedido extends _BaseEntity {
         this.fk_cliente = fk_cliente;
     }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
-    }
-
-    public int getFk_pedido() {
-        return fk_pedido;
-    }
-
-    public void setFk_pedido(int fk_pedido) {
-        this.fk_pedido = fk_pedido;
-    }
-
-    public int getFk_prod() {
-        return fk_prod;
-    }
-
-    public void setFk_prod(int fk_prod) {
-        this.fk_prod = fk_prod;
-    }
-
     @Override
     public String toString() {
         return "Pedido{" +
@@ -110,10 +71,6 @@ public class Pedido extends _BaseEntity {
             ", valor_total=" + valor_total +
             ", metodo_pgto='" + metodo_pgto + '\'' +
             ", fk_cliente=" + fk_cliente +
-            ", quantidade=" + quantidade +
-            ", subtotal=" + subtotal +
-            ", fk_pedido=" + fk_pedido +
-            ", fk_prod=" + fk_prod +
             "} " + super.toString();
     }
 }
