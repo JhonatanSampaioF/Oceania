@@ -1,7 +1,9 @@
 package fiap.tds.resources;
 
+import fiap.tds.models.CepApiResponse;
 import fiap.tds.models.Endereco;
 import fiap.tds.repositories.EnderecoRepositoryOracle;
+import fiap.tds.services.CepApi;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -63,5 +65,37 @@ public class EnderecoResource {
         return Response.status(204).build();
     }
 
-}
+    @GET
+    @Path("cep/{cep}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEnderecoPorCep(@PathParam("cep") String cep, @HeaderParam("Authorization") String token) {
+        try {
+            CepApiResponse cepData = CepApi.getEnderecoPorCep(cep, token);
+            Endereco endereco = new Endereco();
+            endereco.setCep(Integer.parseInt(cepData.getCep()));
+            endereco.setLogradouro(cepData.getEndereco());
+            endereco.setBairro(cepData.getBairro());
+            endereco.setCidade(cepData.getCidade());
+            endereco.setEstado(cepData.getUf());
+            endereco.setPais("BR");
+            endereco.setInfo_adicionais(cepData.getComplemento());
 
+            // Aqui você pode definir outras propriedades do Endereço como necessário
+
+            // Verifica se o endereço já existe
+            Endereco existingEndereco = enderecoRepo.findById(endereco.getCep());
+            if (existingEndereco == null) {
+                enderecoRepo.create(endereco);
+            } else {
+                endereco.setId(existingEndereco.getId());
+                enderecoRepo.update(endereco);
+            }
+
+            return Response.status(200).entity(endereco).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(500).entity("Erro ao buscar dados do CEP: " + e.getMessage()).build();
+        }
+    }
+
+}
