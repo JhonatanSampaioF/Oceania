@@ -1,5 +1,7 @@
 package fiap.tds.repositories;
 
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.caelum.stella.validation.InvalidStateException;
 import fiap.tds.models.Cliente;
 import fiap.tds.models.ConexaoOracle;
 
@@ -34,6 +36,11 @@ public class ClienteRepositoryOracle extends ConexaoOracle {
     }
 
     public ClienteRepositoryOracle(){
+    }
+
+    private void validateCPF(String cpf) throws InvalidStateException {
+        CPFValidator validator = new CPFValidator();
+        validator.assertValid(cpf);
     }
 
     public Cliente findById(int id){
@@ -72,34 +79,38 @@ public class ClienteRepositoryOracle extends ConexaoOracle {
     }
 
     public void create(Cliente cliente){
-        try(
-            var conn = getConnection();
-            var stmt = conn.prepareStatement(
-                "INSERT INTO %s (%s, %s, %s, %s, %s) VALUES (?,?,?,?,?)"
-                    .formatted(
-                        TB_NAME,
-                        TB_COLUMNS.get("NOME"),
-                        TB_COLUMNS.get("CPF"),
-                        TB_COLUMNS.get("EMAIL"),
-                        TB_COLUMNS.get("SENHA"),
-                        TB_COLUMNS.get("DT_NASCIMENTO")
-                    )
-            )
-        )
-        {
-            stmt.setString(1, cliente.getNm_clie());
-            stmt.setInt(2, cliente.getCpf());
-            stmt.setString(3, cliente.getEmail());
-            stmt.setString(4, cliente.getSenha());
-            stmt.setDate(5, cliente.getDt_nasc());
-            var rs = stmt.executeUpdate();
-            if (rs == 1){
-                LOGGER.info("Cliente criado com sucesso!");
+        try {
+            validateCPF(String.valueOf(cliente.getCpf())); // Valida CPF
+            try (
+                var conn = getConnection();
+                var stmt = conn.prepareStatement(
+                    "INSERT INTO %s (%s, %s, %s, %s, %s) VALUES (?,?,?,?,?)"
+                        .formatted(
+                            TB_NAME,
+                            TB_COLUMNS.get("NOME"),
+                            TB_COLUMNS.get("CPF"),
+                            TB_COLUMNS.get("EMAIL"),
+                            TB_COLUMNS.get("SENHA"),
+                            TB_COLUMNS.get("DATA_NASCIMENTO")
+                        )
+                )
+            ) {
+                stmt.setString(1, cliente.getNm_clie());
+                stmt.setInt(2, cliente.getCpf());
+                stmt.setString(3, cliente.getEmail());
+                stmt.setString(4, cliente.getSenha());
+                stmt.setDate(5, cliente.getDt_nasc());
+                var rs = stmt.executeUpdate();
+                if (rs == 1){
+                    LOGGER.info("Cliente criado com sucesso!");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                LOGGER.error(MessageFormat.format("Erro ao criar cliente: {0}", e.getMessage()));
             }
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-            LOGGER.error(MessageFormat.format("Erro ao criar cliente: {0}", e.getMessage()));
+        } catch (InvalidStateException e) {
+            LOGGER.error("CPF inválido: " + e.getInvalidMessages());
+            throw new IllegalArgumentException("CPF inválido: " + e.getInvalidMessages());
         }
     }
 
@@ -135,36 +146,40 @@ public class ClienteRepositoryOracle extends ConexaoOracle {
     }
 
     public int update(Cliente cliente){
-        try(
-            var conn = getConnection();
-            var stmt = conn.prepareStatement(
-                "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ?, %s = ? WHERE %s = ?"
-                    .formatted(
-                        TB_NAME,
-                        TB_COLUMNS.get("NOME"),
-                        TB_COLUMNS.get("CPF"),
-                        TB_COLUMNS.get("EMAIL"),
-                        TB_COLUMNS.get("SENHA"),
-                        TB_COLUMNS.get("DT_NASCIMENTO"),
-                        TB_COLUMNS.get("ID")
-                    )
-            )
-        )
-        {
-            stmt.setString(1, cliente.getNm_clie());
-            stmt.setInt(2, cliente.getCpf());
-            stmt.setString(3, cliente.getEmail());
-            stmt.setString(4, cliente.getSenha());
-            stmt.setDate(5, cliente.getDt_nasc());
-            stmt.setInt(6, cliente.getId());
-            var rs = stmt.executeUpdate();
-            if (rs == 1){
-                LOGGER.info("Cliente atualizado com sucesso!");
+        try {
+            validateCPF(String.valueOf(cliente.getCpf())); // Valida CPF
+            try (
+                var conn = getConnection();
+                var stmt = conn.prepareStatement(
+                    "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ?, %s = ? WHERE %s = ?"
+                        .formatted(
+                            TB_NAME,
+                            TB_COLUMNS.get("NOME"),
+                            TB_COLUMNS.get("CPF"),
+                            TB_COLUMNS.get("EMAIL"),
+                            TB_COLUMNS.get("SENHA"),
+                            TB_COLUMNS.get("DATA_NASCIMENTO"),
+                            TB_COLUMNS.get("ID")
+                        )
+                )
+            ) {
+                stmt.setString(1, cliente.getNm_clie());
+                stmt.setInt(2, cliente.getCpf());
+                stmt.setString(3, cliente.getEmail());
+                stmt.setString(4, cliente.getSenha());
+                stmt.setDate(5, cliente.getDt_nasc());
+                stmt.setInt(6, cliente.getId());
+                var rs = stmt.executeUpdate();
+                if (rs == 1){
+                    LOGGER.info("Cliente atualizado com sucesso!");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                LOGGER.error(MessageFormat.format("Erro ao atualizar cliente: {0}", e.getMessage()));
             }
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-            LOGGER.error(MessageFormat.format("Erro ao atualizar cliente: {0}", e.getMessage()));
+        } catch (InvalidStateException e) {
+            LOGGER.error("CPF inválido: " + e.getInvalidMessages());
+            throw new IllegalArgumentException("CPF inválido: " + e.getInvalidMessages());
         }
         return 0;
     }

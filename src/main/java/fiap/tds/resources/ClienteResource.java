@@ -31,7 +31,11 @@ public class ClienteResource {
     public Response createCliente(Cliente cliente) {
         if (cliente == null)
             return Response.status(400).entity("Cliente não pode ser nulo").build();
-        clienteRepo.create(cliente);
+        try {
+            clienteRepo.create(cliente);
+        } catch (IllegalArgumentException e) {
+            return Response.status(400).entity(e.getMessage()).build();
+        }
         return Response.status(201).entity(cliente).build();
     }
 
@@ -50,7 +54,11 @@ public class ClienteResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateCliente(@PathParam("id_clie") int id_clie, Cliente cliente) {
         cliente.setId(id_clie);
-        clienteRepo.update(cliente);
+        try {
+            clienteRepo.update(cliente);
+        } catch (IllegalArgumentException e) {
+            return Response.status(400).entity(e.getMessage()).build();
+        }
         return Response.status(Response.Status.OK).entity(cliente).build();
     }
 

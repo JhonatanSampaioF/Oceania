@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47b147ea-c847-4eab-8ff2-750a8af7694f" name="Changes" comment="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/DetalhesPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/DetalhesPedidoRepositoryOracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/ClienteResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/DetalhesPedidoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/EnderecoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/LojaResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/LojistaResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/PedidoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/ProdutoResource.java" afterDir="false" />
+    <list default="true" id="47b147ea-c847-4eab-8ff2-750a8af7694f" name="Changes" comment="Add API Cep, Services, Utils / Update pom.xml, EnderecoResource">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/models/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/PedidoRepositoryOracle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ProdutoRepositoryOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ProdutoRepositoryOracle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ClienteRepositoryOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/repositories/ClienteRepositoryOracle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/ClienteResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/tds/resources/ClienteResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -86,7 +77,7 @@
       <workItem from="1717546098578" duration="118000" />
       <workItem from="1717546239611" duration="3053000" />
       <workItem from="1717549310310" duration="809000" />
-      <workItem from="1717601914090" duration="5863000" />
+      <workItem from="1717601914090" duration="9274000" />
     </task>
     <task id="LOCAL-00001" summary="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main">
       <option name="closed" value="true" />
@@ -96,15 +87,34 @@
       <option name="project" value="LOCAL" />
       <updated>1717549515997</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add DetalhesPedido, Resources / Update pom.xml, Repositories">
+      <option name="closed" value="true" />
+      <created>1717611651562</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717611651562</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add API Cep, Services, Utils / Update pom.xml, EnderecoResource">
+      <option name="closed" value="true" />
+      <created>1717614487691</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717614487691</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Models, CorsFilter, Repositories&#10;Update pom.xml, Main" />
+    <MESSAGE value="Add DetalhesPedido, Resources / Update pom.xml, Repositories" />
+    <MESSAGE value="Add API Cep, Services, Utils / Update pom.xml, EnderecoResource" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add API Cep, Services, Utils / Update pom.xml, EnderecoResource" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
