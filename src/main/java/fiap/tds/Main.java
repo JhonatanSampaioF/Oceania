@@ -18,14 +18,15 @@ public class Main {
     public static final String BASE_URI = "http://localhost:8080/";
     public static final Logger LOGGER = LogManager.getLogger(Main.class);
 
+
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
-        // in org.example package
-        final ResourceConfig rc = new ResourceConfig().packages("org.example");
+        // in fiap.tds package
+        final ResourceConfig rc = new ResourceConfig().packages("fiap.tds.resources");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
@@ -39,10 +40,11 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
+        LOGGER.info("Iniciano aplicação...");
         System.out.println(String.format("Jersey app started with endpoints available at "
-                + "%s%nHit Ctrl-C to stop it...", BASE_URI));
+            + "%s%nHit Ctrl-C to stop it...", BASE_URI));
         System.in.read();
         server.stop();
+        LOGGER.info("Aplicação finalizada....");
     }
 }
-
